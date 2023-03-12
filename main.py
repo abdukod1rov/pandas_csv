@@ -56,10 +56,10 @@ def login():
         print('Log In Successful')
         if username == 'ad001' or username == 'ad002':
             isAdmin = True
-            return user_id
         else:
             isStudent = True
-            return user_id
+        return user_id
+
 
     else:
         print("Invalid Username or Password")
@@ -81,7 +81,6 @@ def deleteStudentRecord(name, surname):
             studentInfo_df.loc[(studentInfo_df['Name'] == name) & (studentInfo_df['Surname'] == surname)].index)
     else:
         print('No student available with these credentials')
-        deleteStudentRecord(name, surname)
     # studentGrade_df = studentGrade_df.drop(studentGrade_df.loc[(studentGrade_df['ID'] == ID)].index)
     studentInfo_df.to_csv('Student_info.csv', index=False)
     print('Student deleted Successfully')
